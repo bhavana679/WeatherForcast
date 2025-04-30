@@ -13,12 +13,6 @@ const WeatherApp = () => {
   const [airQuality, setAirQuality] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [theme, setTheme] = useState("dark"); // theme state: "dark" or "light"
-
-  const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === "dark" ? "light" : "dark"));
-  };
-
   const getAirQuality = (lat, lon) => {
     const airQualityUrl = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
     fetch(airQualityUrl)
@@ -183,15 +177,9 @@ const WeatherApp = () => {
   }, []);
 
   return (
-    <div className={`container ${theme === "light" ? "light-theme" : ""}`}>
+    <div className="container">
       <div className="header">
         <h2>Moosam</h2>
-        <div className="theme-toggle">
-          <label className="switch">
-            <input type="checkbox" onChange={toggleTheme} checked={theme === "light"} />
-            <span className="slider round"></span>
-          </label>
-        </div>
         <div className="weather-input">
           <input
             type="text"
