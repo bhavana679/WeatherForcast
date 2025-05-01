@@ -179,7 +179,7 @@ const WeatherApp = () => {
   return (
     <div className="container">
       <div className="header">
-        <h2>Moosam</h2>
+        <h2>SkySense Weather</h2>
         <div className="weather-input">
           <input
             type="text"
